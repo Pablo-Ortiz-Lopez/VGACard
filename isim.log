@@ -1,0 +1,25 @@
+ISim log file
+Running: /home/pablo/ise/VGA/DATA_IN_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/pablo/ise/VGA/DATA_IN_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# isim force add /data_in/data_present 1 -radix bin
+# isim force add /data_in/received_byte 00001111 -radix bin
+# run 1.00us
+# isim force add /data_in/data_present 0 -radix bin
+# run 1.00us
+# isim force add /data_in/data_present 1 -radix bin
+# run 1.00us
+# isim force add /data_in/address 00000000000000000000000000000001 -radix bin
+# run 1.00us
+# isim force add /data_in/data_present 0 -radix bin
+# run 1.00us
+# exit 0

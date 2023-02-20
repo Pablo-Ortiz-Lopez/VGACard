@@ -1,0 +1,2 @@
+vhdl work "SPI_SLAVE.vhd"
+vhdl work "DATA_IN.vhd"

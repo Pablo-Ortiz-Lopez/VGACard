@@ -1,0 +1,1242 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 2 -n
+3 -fastpaths -xml VGA_CARD.twx VGA_CARD.ncd -o VGA_CARD.twr VGA_CARD.pcf -ucf
+PIN_MAPPINGS.ucf
+
+Design file:              VGA_CARD.ncd
+Physical constraint file: VGA_CARD.pcf
+Device,package,speed:     xc6slx16,ftg256,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: NET "U1/CLK_IN_CMT" PERIOD = 20 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   5.000ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "U1/CLK_IN_CMT" PERIOD = 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 15.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 20.000ns
+  Low pulse: 10.000ns
+  Low pulse limit: 2.500ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: U1/PLL1/PLL_ADV/CLKIN1
+  Logical resource: U1/PLL1/PLL_ADV/CLKIN1
+  Location pin: PLL_ADV_X0Y1.CLKIN2
+  Clock network: U1/PLL1/PLL_ADV_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+Slack: 15.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 2.500ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: U1/PLL1/PLL_ADV/CLKIN1
+  Logical resource: U1/PLL1/PLL_ADV/CLKIN1
+  Location pin: PLL_ADV_X0Y1.CLKIN2
+  Clock network: U1/PLL1/PLL_ADV_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+Slack: 17.780ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.220ns (450.450MHz) (Tpllper_CLKIN(Finmax))
+  Physical resource: U1/PLL1/PLL_ADV/CLKIN1
+  Logical resource: U1/PLL1/PLL_ADV/CLKIN1
+  Location pin: PLL_ADV_X0Y1.CLKIN2
+  Clock network: U1/PLL1/PLL_ADV_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net "U1/CLK_OUT1_CMT" derived from  NET 
+"U1/CLK_IN_CMT" PERIOD = 20 ns HIGH 50%;  divided by 2.17 to 9.231 nS   
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 1317 paths analyzed, 207 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   4.951ns.
+--------------------------------------------------------------------------------
+
+Paths for end point U3/GREEN_0 (SLICE_X23Y57.A3), 41 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     4.279ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_3 (FF)
+  Destination:          U3/GREEN_0 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.822ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.015ns (0.418 - 0.433)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_3 to U3/GREEN_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y57.DQ      Tcko                  0.430   U2/pixel_internal<3>
+                                                       U2/pixel_internal_3
+    SLICE_X22Y57.B1      net (fanout=41)       1.569   U2/pixel_internal<3>
+    SLICE_X22Y57.B       Tilo                  0.254   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o11
+    SLICE_X22Y57.D1      net (fanout=1)        0.598   U3/PIXEL[10]_PWR_8_o_LessThan_7_o1
+    SLICE_X22Y57.DMUX    Tilo                  0.326   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o12
+    SLICE_X23Y58.B5      net (fanout=2)        0.451   U3/PIXEL[10]_PWR_8_o_LessThan_7_o
+    SLICE_X23Y58.B       Tilo                  0.259   U3/GREEN<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o31
+    SLICE_X23Y57.A3      net (fanout=4)        0.562   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out1
+    SLICE_X23Y57.CLK     Tas                   0.373   U3/GREEN<2>
+                                                       U3/GREEN_0_glue_set
+                                                       U3/GREEN_0
+    -------------------------------------------------  ---------------------------
+    Total                                      4.822ns (1.642ns logic, 3.180ns route)
+                                                       (34.1% logic, 65.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.280ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_8 (FF)
+  Destination:          U3/GREEN_0 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.815ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.021ns (0.418 - 0.439)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_8 to U3/GREEN_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y59.AQ      Tcko                  0.430   U2/pixel_internal<10>
+                                                       U2/pixel_internal_8
+    SLICE_X22Y57.B2      net (fanout=33)       1.562   U2/pixel_internal<8>
+    SLICE_X22Y57.B       Tilo                  0.254   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o11
+    SLICE_X22Y57.D1      net (fanout=1)        0.598   U3/PIXEL[10]_PWR_8_o_LessThan_7_o1
+    SLICE_X22Y57.DMUX    Tilo                  0.326   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o12
+    SLICE_X23Y58.B5      net (fanout=2)        0.451   U3/PIXEL[10]_PWR_8_o_LessThan_7_o
+    SLICE_X23Y58.B       Tilo                  0.259   U3/GREEN<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o31
+    SLICE_X23Y57.A3      net (fanout=4)        0.562   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out1
+    SLICE_X23Y57.CLK     Tas                   0.373   U3/GREEN<2>
+                                                       U3/GREEN_0_glue_set
+                                                       U3/GREEN_0
+    -------------------------------------------------  ---------------------------
+    Total                                      4.815ns (1.642ns logic, 3.173ns route)
+                                                       (34.1% logic, 65.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.585ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_4 (FF)
+  Destination:          U3/GREEN_0 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.513ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.018ns (0.418 - 0.436)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_4 to U3/GREEN_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y58.AQ      Tcko                  0.430   U2/pixel_internal<7>
+                                                       U2/pixel_internal_4
+    SLICE_X15Y58.A1      net (fanout=43)       0.815   U2/pixel_internal<4>
+    SLICE_X15Y58.A       Tilo                  0.259   U2/pixel_internal_3_1
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_6_o11
+    SLICE_X15Y58.C2      net (fanout=1)        0.530   U3/PIXEL[10]_PWR_8_o_LessThan_6_o1
+    SLICE_X15Y58.CMUX    Tilo                  0.337   U2/pixel_internal_3_1
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_6_o12
+    SLICE_X23Y58.B6      net (fanout=2)        0.948   U3/PIXEL[10]_PWR_8_o_LessThan_6_o
+    SLICE_X23Y58.B       Tilo                  0.259   U3/GREEN<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o31
+    SLICE_X23Y57.A3      net (fanout=4)        0.562   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out1
+    SLICE_X23Y57.CLK     Tas                   0.373   U3/GREEN<2>
+                                                       U3/GREEN_0_glue_set
+                                                       U3/GREEN_0
+    -------------------------------------------------  ---------------------------
+    Total                                      4.513ns (1.658ns logic, 2.855ns route)
+                                                       (36.7% logic, 63.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U3/GREEN_1 (SLICE_X23Y57.B4), 41 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     4.286ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_3 (FF)
+  Destination:          U3/GREEN_1 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.815ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.015ns (0.418 - 0.433)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_3 to U3/GREEN_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y57.DQ      Tcko                  0.430   U2/pixel_internal<3>
+                                                       U2/pixel_internal_3
+    SLICE_X22Y57.B1      net (fanout=41)       1.569   U2/pixel_internal<3>
+    SLICE_X22Y57.B       Tilo                  0.254   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o11
+    SLICE_X22Y57.D1      net (fanout=1)        0.598   U3/PIXEL[10]_PWR_8_o_LessThan_7_o1
+    SLICE_X22Y57.DMUX    Tilo                  0.326   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o12
+    SLICE_X23Y58.B5      net (fanout=2)        0.451   U3/PIXEL[10]_PWR_8_o_LessThan_7_o
+    SLICE_X23Y58.B       Tilo                  0.259   U3/GREEN<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o31
+    SLICE_X23Y57.B4      net (fanout=4)        0.555   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out1
+    SLICE_X23Y57.CLK     Tas                   0.373   U3/GREEN<2>
+                                                       U3/GREEN_1_glue_set
+                                                       U3/GREEN_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.815ns (1.642ns logic, 3.173ns route)
+                                                       (34.1% logic, 65.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.287ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_8 (FF)
+  Destination:          U3/GREEN_1 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.808ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.021ns (0.418 - 0.439)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_8 to U3/GREEN_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y59.AQ      Tcko                  0.430   U2/pixel_internal<10>
+                                                       U2/pixel_internal_8
+    SLICE_X22Y57.B2      net (fanout=33)       1.562   U2/pixel_internal<8>
+    SLICE_X22Y57.B       Tilo                  0.254   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o11
+    SLICE_X22Y57.D1      net (fanout=1)        0.598   U3/PIXEL[10]_PWR_8_o_LessThan_7_o1
+    SLICE_X22Y57.DMUX    Tilo                  0.326   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o12
+    SLICE_X23Y58.B5      net (fanout=2)        0.451   U3/PIXEL[10]_PWR_8_o_LessThan_7_o
+    SLICE_X23Y58.B       Tilo                  0.259   U3/GREEN<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o31
+    SLICE_X23Y57.B4      net (fanout=4)        0.555   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out1
+    SLICE_X23Y57.CLK     Tas                   0.373   U3/GREEN<2>
+                                                       U3/GREEN_1_glue_set
+                                                       U3/GREEN_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.808ns (1.642ns logic, 3.166ns route)
+                                                       (34.2% logic, 65.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.592ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_4 (FF)
+  Destination:          U3/GREEN_1 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.506ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.018ns (0.418 - 0.436)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_4 to U3/GREEN_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y58.AQ      Tcko                  0.430   U2/pixel_internal<7>
+                                                       U2/pixel_internal_4
+    SLICE_X15Y58.A1      net (fanout=43)       0.815   U2/pixel_internal<4>
+    SLICE_X15Y58.A       Tilo                  0.259   U2/pixel_internal_3_1
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_6_o11
+    SLICE_X15Y58.C2      net (fanout=1)        0.530   U3/PIXEL[10]_PWR_8_o_LessThan_6_o1
+    SLICE_X15Y58.CMUX    Tilo                  0.337   U2/pixel_internal_3_1
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_6_o12
+    SLICE_X23Y58.B6      net (fanout=2)        0.948   U3/PIXEL[10]_PWR_8_o_LessThan_6_o
+    SLICE_X23Y58.B       Tilo                  0.259   U3/GREEN<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o31
+    SLICE_X23Y57.B4      net (fanout=4)        0.555   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out1
+    SLICE_X23Y57.CLK     Tas                   0.373   U3/GREEN<2>
+                                                       U3/GREEN_1_glue_set
+                                                       U3/GREEN_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.506ns (1.658ns logic, 2.848ns route)
+                                                       (36.8% logic, 63.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U3/BLUE_1 (SLICE_X18Y58.B4), 41 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     4.376ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_3 (FF)
+  Destination:          U3/BLUE_1 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.717ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.023ns (0.410 - 0.433)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_3 to U3/BLUE_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y57.DQ      Tcko                  0.430   U2/pixel_internal<3>
+                                                       U2/pixel_internal_3
+    SLICE_X22Y57.B1      net (fanout=41)       1.569   U2/pixel_internal<3>
+    SLICE_X22Y57.B       Tilo                  0.254   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o11
+    SLICE_X22Y57.D1      net (fanout=1)        0.598   U3/PIXEL[10]_PWR_8_o_LessThan_7_o1
+    SLICE_X22Y57.DMUX    Tilo                  0.326   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o12
+    SLICE_X21Y58.B6      net (fanout=2)        0.409   U3/PIXEL[10]_PWR_8_o_LessThan_7_o
+    SLICE_X21Y58.B       Tilo                  0.259   U3/BLUE<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o41
+    SLICE_X18Y58.B4      net (fanout=4)        0.533   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out2
+    SLICE_X18Y58.CLK     Tas                   0.339   U3/BLUE<2>
+                                                       U3/BLUE_1_glue_set
+                                                       U3/BLUE_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.717ns (1.608ns logic, 3.109ns route)
+                                                       (34.1% logic, 65.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.377ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_8 (FF)
+  Destination:          U3/BLUE_1 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.710ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.029ns (0.410 - 0.439)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_8 to U3/BLUE_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y59.AQ      Tcko                  0.430   U2/pixel_internal<10>
+                                                       U2/pixel_internal_8
+    SLICE_X22Y57.B2      net (fanout=33)       1.562   U2/pixel_internal<8>
+    SLICE_X22Y57.B       Tilo                  0.254   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o11
+    SLICE_X22Y57.D1      net (fanout=1)        0.598   U3/PIXEL[10]_PWR_8_o_LessThan_7_o1
+    SLICE_X22Y57.DMUX    Tilo                  0.326   U3/GND_9_o_BG_COLOR[11]_equal_1_o
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_7_o12
+    SLICE_X21Y58.B6      net (fanout=2)        0.409   U3/PIXEL[10]_PWR_8_o_LessThan_7_o
+    SLICE_X21Y58.B       Tilo                  0.259   U3/BLUE<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o41
+    SLICE_X18Y58.B4      net (fanout=4)        0.533   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out2
+    SLICE_X18Y58.CLK     Tas                   0.339   U3/BLUE<2>
+                                                       U3/BLUE_1_glue_set
+                                                       U3/BLUE_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.710ns (1.608ns logic, 3.102ns route)
+                                                       (34.1% logic, 65.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.606ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U2/pixel_internal_4 (FF)
+  Destination:          U3/BLUE_1 (FF)
+  Requirement:          9.230ns
+  Data Path Delay:      4.484ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.026ns (0.410 - 0.436)
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 9.230ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.217ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U2/pixel_internal_4 to U3/BLUE_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y58.AQ      Tcko                  0.430   U2/pixel_internal<7>
+                                                       U2/pixel_internal_4
+    SLICE_X15Y58.A1      net (fanout=43)       0.815   U2/pixel_internal<4>
+    SLICE_X15Y58.A       Tilo                  0.259   U2/pixel_internal_3_1
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_6_o11
+    SLICE_X15Y58.C2      net (fanout=1)        0.530   U3/PIXEL[10]_PWR_8_o_LessThan_6_o1
+    SLICE_X15Y58.CMUX    Tilo                  0.337   U2/pixel_internal_3_1
+                                                       U3/PIXEL[10]_PWR_8_o_LessThan_6_o12
+    SLICE_X21Y58.B5      net (fanout=2)        0.982   U3/PIXEL[10]_PWR_8_o_LessThan_6_o
+    SLICE_X21Y58.B       Tilo                  0.259   U3/BLUE<3>
+                                                       U3/PIXEL[10]_GND_9_o_LessThan_3_o41
+    SLICE_X18Y58.B4      net (fanout=4)        0.533   U3/PIXEL[10]_GND_9_o_LessThan_3_o_mmx_out2
+    SLICE_X18Y58.CLK     Tas                   0.339   U3/BLUE<2>
+                                                       U3/BLUE_1_glue_set
+                                                       U3/BLUE_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.484ns (1.624ns logic, 2.860ns route)
+                                                       (36.2% logic, 63.8% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: PERIOD analysis for net "U1/CLK_OUT1_CMT" derived from
+ NET "U1/CLK_IN_CMT" PERIOD = 20 ns HIGH 50%;
+ divided by 2.17 to 9.231 nS  
+
+--------------------------------------------------------------------------------
+
+Paths for end point U2/line_internal_8 (SLICE_X5Y58.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.450ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U2/line_internal_8 (FF)
+  Destination:          U2/line_internal_8 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.450ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U2/line_internal_8 to U2/line_internal_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X5Y58.AQ       Tcko                  0.198   U2/line_internal<9>
+                                                       U2/line_internal_8
+    SLICE_X5Y58.A6       net (fanout=5)        0.037   U2/line_internal<8>
+    SLICE_X5Y58.CLK      Tah         (-Th)    -0.215   U2/line_internal<9>
+                                                       U2/line_internal_8_rstpot
+                                                       U2/line_internal_8
+    -------------------------------------------------  ---------------------------
+    Total                                      0.450ns (0.413ns logic, 0.037ns route)
+                                                       (91.8% logic, 8.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U2/line_internal_0 (SLICE_X7Y57.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.453ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U2/line_internal_0 (FF)
+  Destination:          U2/line_internal_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.453ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U2/line_internal_0 to U2/line_internal_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X7Y57.AQ       Tcko                  0.198   U2/line_internal<1>
+                                                       U2/line_internal_0
+    SLICE_X7Y57.A6       net (fanout=4)        0.040   U2/line_internal<0>
+    SLICE_X7Y57.CLK      Tah         (-Th)    -0.215   U2/line_internal<1>
+                                                       U2/line_internal_0_rstpot
+                                                       U2/line_internal_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.453ns (0.413ns logic, 0.040ns route)
+                                                       (91.2% logic, 8.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U2/line_internal_4 (SLICE_X6Y57.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.461ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U2/line_internal_4 (FF)
+  Destination:          U2/line_internal_4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.461ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         CLK108 rising at 0.000ns
+  Destination Clock:    CLK108 rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U2/line_internal_4 to U2/line_internal_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y57.AQ       Tcko                  0.234   U2/line_internal<5>
+                                                       U2/line_internal_4
+    SLICE_X6Y57.A6       net (fanout=5)        0.030   U2/line_internal<4>
+    SLICE_X6Y57.CLK      Tah         (-Th)    -0.197   U2/line_internal<5>
+                                                       U2/line_internal_4_rstpot
+                                                       U2/line_internal_4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.461ns (0.431ns logic, 0.030ns route)
+                                                       (93.5% logic, 6.5% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "U1/CLK_OUT1_CMT" derived from
+ NET "U1/CLK_IN_CMT" PERIOD = 20 ns HIGH 50%;
+ divided by 2.17 to 9.231 nS  
+
+--------------------------------------------------------------------------------
+Slack: 6.564ns (period - min period limit)
+  Period: 9.230ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: U1/BUFG1/I0
+  Logical resource: U1/BUFG1/I0
+  Location pin: BUFGMUX_X2Y3.I0
+  Clock network: U1/CLK_OUT1_CMT
+--------------------------------------------------------------------------------
+Slack: 8.178ns (period - min period limit)
+  Period: 9.230ns
+  Min period limit: 1.052ns (950.570MHz) (Tpllper_CLKOUT(Foutmax))
+  Physical resource: U1/PLL1/PLL_ADV/CLKOUT0
+  Logical resource: U1/PLL1/PLL_ADV/CLKOUT0
+  Location pin: PLL_ADV_X0Y1.CLKOUT0
+  Clock network: U1/CLK_OUT1_CMT
+--------------------------------------------------------------------------------
+Slack: 8.750ns (period - min period limit)
+  Period: 9.230ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: U2/line_internal<3>/CLK
+  Logical resource: U2/line_internal_2/CK
+  Location pin: SLICE_X6Y56.CLK
+  Clock network: CLK108
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "SCLK_BUFGP/IBUFG" PERIOD = 1000 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 5589 paths analyzed, 568 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   4.039ns.
+--------------------------------------------------------------------------------
+
+Paths for end point U4/SPI/address_internal_31 (SLICE_X22Y52.CIN), 281 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     995.961ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_2 (FF)
+  Destination:          U4/SPI/address_internal_31 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.978ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_2 to U4/SPI/address_internal_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.CQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_2
+    SLICE_X22Y44.D2      net (fanout=37)       1.298   U4/SPI/spi_phase<2>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.313   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_31
+    -------------------------------------------------  ---------------------------
+    Total                                      3.978ns (1.860ns logic, 2.118ns route)
+                                                       (46.8% logic, 53.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     996.268ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_0 (FF)
+  Destination:          U4/SPI/address_internal_31 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.671ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_0 to U4/SPI/address_internal_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.AQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_0
+    SLICE_X22Y44.D5      net (fanout=39)       0.991   U4/SPI/spi_phase<0>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.313   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_31
+    -------------------------------------------------  ---------------------------
+    Total                                      3.671ns (1.860ns logic, 1.811ns route)
+                                                       (50.7% logic, 49.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     996.375ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_1 (FF)
+  Destination:          U4/SPI/address_internal_31 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.564ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_1 to U4/SPI/address_internal_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.BQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_1
+    SLICE_X22Y44.D6      net (fanout=38)       0.884   U4/SPI/spi_phase<1>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.313   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_31
+    -------------------------------------------------  ---------------------------
+    Total                                      3.564ns (1.860ns logic, 1.704ns route)
+                                                       (52.2% logic, 47.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U4/SPI/address_internal_29 (SLICE_X22Y52.CIN), 281 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     995.971ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_2 (FF)
+  Destination:          U4/SPI/address_internal_29 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.968ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_2 to U4/SPI/address_internal_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.CQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_2
+    SLICE_X22Y44.D2      net (fanout=37)       1.298   U4/SPI/spi_phase<2>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.303   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_29
+    -------------------------------------------------  ---------------------------
+    Total                                      3.968ns (1.850ns logic, 2.118ns route)
+                                                       (46.6% logic, 53.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     996.278ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_0 (FF)
+  Destination:          U4/SPI/address_internal_29 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.661ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_0 to U4/SPI/address_internal_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.AQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_0
+    SLICE_X22Y44.D5      net (fanout=39)       0.991   U4/SPI/spi_phase<0>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.303   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_29
+    -------------------------------------------------  ---------------------------
+    Total                                      3.661ns (1.850ns logic, 1.811ns route)
+                                                       (50.5% logic, 49.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     996.385ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_1 (FF)
+  Destination:          U4/SPI/address_internal_29 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.554ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_1 to U4/SPI/address_internal_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.BQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_1
+    SLICE_X22Y44.D6      net (fanout=38)       0.884   U4/SPI/spi_phase<1>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.303   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_29
+    -------------------------------------------------  ---------------------------
+    Total                                      3.554ns (1.850ns logic, 1.704ns route)
+                                                       (52.1% logic, 47.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U4/SPI/address_internal_30 (SLICE_X22Y52.CIN), 281 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     996.002ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_2 (FF)
+  Destination:          U4/SPI/address_internal_30 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.937ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_2 to U4/SPI/address_internal_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.CQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_2
+    SLICE_X22Y44.D2      net (fanout=37)       1.298   U4/SPI/spi_phase<2>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.272   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_30
+    -------------------------------------------------  ---------------------------
+    Total                                      3.937ns (1.819ns logic, 2.118ns route)
+                                                       (46.2% logic, 53.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     996.309ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_0 (FF)
+  Destination:          U4/SPI/address_internal_30 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.630ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_0 to U4/SPI/address_internal_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.AQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_0
+    SLICE_X22Y44.D5      net (fanout=39)       0.991   U4/SPI/spi_phase<0>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.272   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_30
+    -------------------------------------------------  ---------------------------
+    Total                                      3.630ns (1.819ns logic, 1.811ns route)
+                                                       (50.1% logic, 49.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     996.416ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U4/SPI/spi_phase_1 (FF)
+  Destination:          U4/SPI/address_internal_30 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.523ns (Levels of Logic = 9)
+  Clock Path Skew:      -0.026ns (0.304 - 0.330)
+  Source Clock:         SCLK_BUFGP rising at 0.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U4/SPI/spi_phase_1 to U4/SPI/address_internal_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y48.BQ      Tcko                  0.476   U4/SPI/spi_phase<2>
+                                                       U4/SPI/spi_phase_1
+    SLICE_X22Y44.D6      net (fanout=38)       0.884   U4/SPI/spi_phase<1>
+    SLICE_X22Y44.D       Tilo                  0.254   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+                                                       U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv2
+    SLICE_X22Y45.AX      net (fanout=1)        0.799   U4/SPI/PWR_10_o_spi_phase[2]_equal_6_o_inv
+    SLICE_X22Y45.COUT    Taxcy                 0.259   U4/SPI/address_internal<3>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<3>
+    SLICE_X22Y46.COUT    Tbyp                  0.093   U4/SPI/address_internal<7>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<7>
+    SLICE_X22Y47.COUT    Tbyp                  0.093   U4/SPI/address_internal<11>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<11>
+    SLICE_X22Y48.COUT    Tbyp                  0.093   U4/SPI/address_internal<15>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<15>
+    SLICE_X22Y49.COUT    Tbyp                  0.093   U4/SPI/address_internal<19>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<19>
+    SLICE_X22Y50.COUT    Tbyp                  0.093   U4/SPI/address_internal<23>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<23>
+    SLICE_X22Y51.COUT    Tbyp                  0.093   U4/SPI/address_internal<27>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CIN     net (fanout=1)        0.003   U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_cy<27>
+    SLICE_X22Y52.CLK     Tcinck                0.272   U4/SPI/address_internal<31>
+                                                       U4/SPI/Mmux_address_internal[31]_address_internal[31]_mux_11_OUT_rs_xor<31>
+                                                       U4/SPI/address_internal_30
+    -------------------------------------------------  ---------------------------
+    Total                                      3.523ns (1.819ns logic, 1.704ns route)
+                                                       (51.6% logic, 48.4% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: NET "SCLK_BUFGP/IBUFG" PERIOD = 1000 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point U4/SPI/address_shift_register_19 (SLICE_X24Y50.DX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.394ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U4/SPI/address_shift_register_18 (FF)
+  Destination:          U4/SPI/address_shift_register_19 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.394ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SCLK_BUFGP rising at 1000.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U4/SPI/address_shift_register_18 to U4/SPI/address_shift_register_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y50.CQ      Tcko                  0.200   U4/SPI/address_shift_register<19>
+                                                       U4/SPI/address_shift_register_18
+    SLICE_X24Y50.DX      net (fanout=2)        0.146   U4/SPI/address_shift_register<18>
+    SLICE_X24Y50.CLK     Tckdi       (-Th)    -0.048   U4/SPI/address_shift_register<19>
+                                                       U4/SPI/address_shift_register_19
+    -------------------------------------------------  ---------------------------
+    Total                                      0.394ns (0.248ns logic, 0.146ns route)
+                                                       (62.9% logic, 37.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U4/SPI/bitpos_0 (SLICE_X21Y48.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.444ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U4/SPI/bitpos_0 (FF)
+  Destination:          U4/SPI/bitpos_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.444ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SCLK_BUFGP rising at 1000.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U4/SPI/bitpos_0 to U4/SPI/bitpos_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y48.AQ      Tcko                  0.198   U4/SPI/bitpos<2>
+                                                       U4/SPI/bitpos_0
+    SLICE_X21Y48.A6      net (fanout=4)        0.031   U4/SPI/bitpos<0>
+    SLICE_X21Y48.CLK     Tah         (-Th)    -0.215   U4/SPI/bitpos<2>
+                                                       U4/SPI/Mcount_bitpos_xor<0>11_INV_0
+                                                       U4/SPI/bitpos_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.444ns (0.413ns logic, 0.031ns route)
+                                                       (93.0% logic, 7.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U4/SPI/DATA_PRESENT (SLICE_X20Y48.A5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.447ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U4/SPI/bitpos_2 (FF)
+  Destination:          U4/SPI/DATA_PRESENT (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.449ns (Levels of Logic = 1)
+  Clock Path Skew:      0.002ns (0.044 - 0.042)
+  Source Clock:         SCLK_BUFGP rising at 1000.000ns
+  Destination Clock:    SCLK_BUFGP rising at 1000.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U4/SPI/bitpos_2 to U4/SPI/DATA_PRESENT
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y48.BQ      Tcko                  0.198   U4/SPI/bitpos<2>
+                                                       U4/SPI/bitpos_2
+    SLICE_X20Y48.A5      net (fanout=3)        0.061   U4/SPI/bitpos<2>
+    SLICE_X20Y48.CLK     Tah         (-Th)    -0.190   U4/SPI/DATA_PRESENT
+                                                       U4/SPI/GND_11_o_DATA_PRESENT_MUX_135_o<2>1
+                                                       U4/SPI/DATA_PRESENT
+    -------------------------------------------------  ---------------------------
+    Total                                      0.449ns (0.388ns logic, 0.061ns route)
+                                                       (86.4% logic, 13.6% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "SCLK_BUFGP/IBUFG" PERIOD = 1000 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 997.334ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: SCLK_BUFGP/BUFG/I0
+  Logical resource: SCLK_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X3Y7.I0
+  Clock network: SCLK_BUFGP/IBUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: U4/SPI/address_internal<3>/CLK
+  Logical resource: U4/SPI/address_internal_0/CK
+  Location pin: SLICE_X22Y45.CLK
+  Clock network: SCLK_BUFGP
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: U4/SPI/address_internal<3>/CLK
+  Logical resource: U4/SPI/address_internal_1/CK
+  Location pin: SLICE_X22Y45.CLK
+  Clock network: SCLK_BUFGP
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for U1/CLK_IN_CMT
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|U1/CLK_IN_CMT                  |     20.000ns|      5.000ns|     10.727ns|            0|            0|            0|         1317|
+| U1/CLK_OUT1_CMT               |      9.231ns|      4.951ns|          N/A|            0|            0|         1317|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    4.951|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SCLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SCLK           |    4.039|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 6906 paths, 0 nets, and 765 connections
+
+Design statistics:
+   Minimum period:   5.000ns{1}   (Maximum frequency: 200.000MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Mon Feb 20 19:45:36 2023 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 388 MB
+
+
+

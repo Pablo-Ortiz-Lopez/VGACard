@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/pablo/ise/VGA/impact.xsl
+OUTFILE=/home/pablo/ise/VGA/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/pablo/ise/VGA
+LICENSE=iMPACT
+USER_INFO=iMPACT
