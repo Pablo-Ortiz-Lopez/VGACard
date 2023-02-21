@@ -2,28 +2,19 @@
 -- Company: CoopWork Electronics
 -- Engineer: Pablo Ortiz López	
 -- 
--- Create Date:    19:32:55 02/12/2023 
--- Design Name: 	VGA Card
--- Module Name:   VGA_CARD - Behavioral 
--- Project Name: 	VGA Card
+-- Create Date: 19:32:55 02/12/2023 
+-- Design Name: VGA Card
+-- Module Name: VGA_CARD - Behavioral 
+-- Project Name: VGA Card
 -- Target Devices: Xilinx Spartan-6
 -- Tool versions: ISE 14.7
--- Description: 
---
--- Revision: 1.0.0
--- Revision 0.01 - File Created
--- Additional Comments: 
+-- Description: Receives input from SPI and produces a video signal out of a VGA port
 --
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
@@ -39,8 +30,7 @@ entity VGA_CARD is
 		VSYNC : out  STD_LOGIC := '0';
 		SCLK : in STD_LOGIC;
 		MOSI : in STD_LOGIC;
-		CS   : in STD_LOGIC;
-		LED1 : out STD_LOGIC
+		CS   : in STD_LOGIC
 	);
 end VGA_CARD;
 
@@ -55,9 +45,9 @@ architecture Behavioral of VGA_CARD is
 begin
 
 	U1 : entity CLOCK_BLOCK port map(
-		CLK_IN => CLK,
-		CLK_OUT0 => CLK50,
-		CLK_OUT1 => CLK108
+		CLKIN => CLK,
+		CLKOUT0 => CLK50,
+		CLKOUT1 => CLK108
 	);
 	
 	U2 : entity SYNC_MODULE port map(

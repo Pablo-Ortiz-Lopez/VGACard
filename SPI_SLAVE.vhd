@@ -29,10 +29,10 @@ architecture Behavioral of SPI_SLAVE is
 	signal address_shift_register : std_logic_vector(30 downto 0);  
 	
 	-- bit counter
-	signal bitpos 				: integer range 0 to 7 := 0;
+	signal bitpos : integer range 0 to 7 := 0;
 	
 	-- determines if we're in N-Address phase or Data phase.
-	signal spi_phase 			: integer range 0 to 4 := 0;
+	signal spi_phase : integer range 0 to 4 := 0;
 	
 begin
 	ADDRESS <= std_logic_vector(address_internal);
