@@ -10,7 +10,7 @@ entity SPI_SLAVE is
 	port (
 		DATA_PRESENT    : out std_logic := '0';  -- Read byte on falling edge
 		RECEIVED_BYTE   : out std_logic_vector(7 downto 0);  -- received byte
-		ADDRESS			 : out std_logic_vector(31 downto 0);  -- received address
+		ADDRESS			: out std_logic_vector(31 downto 0);  -- received address
 		SCLK            : in  std_logic;
 		CS              : in  std_logic;
 		MOSI            : in  std_logic

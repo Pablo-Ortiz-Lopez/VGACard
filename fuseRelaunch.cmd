@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/pablo/ise/VGA/DATA_IN_isim_beh.exe" -prj "/home/pablo/ise/VGA/DATA_IN_beh.prj" "work.DATA_IN" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/pablo/ise/VGA/SPI_SLAVE_isim_beh.exe" -prj "/home/pablo/ise/VGA/SPI_SLAVE_beh.prj" "work.SPI_SLAVE" 
