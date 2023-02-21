@@ -1,6 +1,0 @@
-vhdl work "SPI_SLAVE.vhd"
-vhdl work "SYNC_MODULE.vhd"
-vhdl work "FRAMEBUFFER.vhd"
-vhdl work "DATA_IN.vhd"
-vhdl work "CLOCK_BLOCK.vhd"
-vhdl work "VGA_CARD.vhd"

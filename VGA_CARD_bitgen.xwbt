@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/home/pablo/ise/VGA/VGA_CARD.ncd
-OUTFILE=/home/pablo/ise/VGA/VGA_CARD.bit
-FAMILY=Spartan6
-PART=xc6slx16-2ftg256
-WORKINGDIR=/home/pablo/ise/VGA
-LICENSE=WebPack
-USER_INFO=212232054_0_0_156
