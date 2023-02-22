@@ -6,6 +6,7 @@ use work.all;
 
 entity DATA_IN is
 	port (
+		CLK  : in  std_logic;
 		SCLK : in  std_logic;
 		CS   : in  std_logic;
 		MOSI : in  std_logic;
@@ -24,7 +25,6 @@ architecture Behavioral of DATA_IN is
 	signal ADDRESS			  : std_logic_vector(31 downto 0);
 	
 begin
-	BG_COLOR <= bg_color_signal;
 	
 	SPI : entity SPI_SLAVE
 	generic map (
@@ -39,13 +39,14 @@ begin
 		RECEIVED_BYTE => RECEIVED_BYTE
 	);
 	
-	process(DATA_PRESENT) begin
-		if(DATA_PRESENT'event AND DATA_PRESENT = '0') then -- Read data on falling edge
+	process(CLK) begin
+		if(rising_edge(CLK) AND DATA_PRESENT = '1') then
 			if(unsigned(ADDRESS) = 1) then
 				bg_color_signal <= RECEIVED_BYTE(3 downto 0) & bg_color_signal(7 downto 0);
 			elsif (unsigned(ADDRESS) = 2) then
 				bg_color_signal <= bg_color_signal(11 downto 8) & RECEIVED_BYTE(7 downto 0);
 			end if;
+			BG_COLOR <= bg_color_signal;
 		end if;
 	end process;
 	

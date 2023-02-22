@@ -71,6 +71,7 @@ begin
 	);
 	
 	U4 : entity DATA_IN  port map (
+		CLK => CLK108,
 		SCLK => SCLK,
 		CS => CS,
 		MOSI => MOSI,
