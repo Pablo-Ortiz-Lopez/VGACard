@@ -2,12 +2,12 @@ Command line:
    SPI_SLAVE_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  56347
+     -socket  55693
 
-Tue Feb 21 15:28:23 2023
+Thu Feb 23 18:22:32 2023
 
 
- Elaboration Time: 0.05 sec
+ Elaboration Time: 0.02 sec
 
  Current Memory Usage: 195.105 Meg
 
@@ -16,15 +16,14 @@ Tue Feb 21 15:28:23 2023
  Total Signal Drivers   : 8
  Total Blocks           : 3
  Total Primitive Blocks : 3
- Total Processes        : 2
+ Total Processes        : 1
  Total Traceable Variables  : 14
  Total Scalar Nets and Variables : 600
-Total Line Count : 23
-Total Line Count : 23
+Total Line Count : 25
 
- Total Simulation Time: 0.44 sec
+ Total Simulation Time: 0.54 sec
 
  Current Memory Usage: 270.606 Meg
 
-Tue Feb 21 15:33:31 2023
+Thu Feb 23 18:31:06 2023
 
