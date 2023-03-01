@@ -98,12 +98,6 @@ begin
 	);
 
 	SRAM : entity SRAM_BLOCK(arc) port map(
-		c3_sys_clk  => CLK108,
-		c3_sys_rst_i => '0',      
-		--c3_clk0	=> '0',
-		--c3_rst0 => '0',
-		--c3_calib_done => '0',                  
-
 		mcb3_dram_dq => mcb3_dram_dq,  
 		mcb3_dram_a => mcb3_dram_a,  
 		mcb3_dram_ba => mcb3_dram_ba,
@@ -123,6 +117,12 @@ begin
 		mcb3_dram_dm => mcb3_dram_dm,
 		mcb3_rzq => mcb3_rzq,
 		mcb3_zio => mcb3_zio,
+
+		c3_sys_clk  => CLK108,
+		c3_sys_rst_i => '0',      
+		--c3_clk0	=> '0',
+		--c3_rst0 => '0',
+		--c3_calib_done => '0',    
 
 		c3_p0_cmd_clk                           =>  CLK108,
 		c3_p0_cmd_en                            =>  '0',
