@@ -59,13 +59,13 @@ architecture Behavioral of VGA_CARD is
 	signal LINE 	: unsigned (9 downto 0) := (others => '0');
 	signal BG_COLOR : std_logic_vector(11 downto 0) := (others => '0');
 	signal VISIBLE_INTERNAL : std_logic := '0';
-	signal CLK50, CLK108	: std_logic;
+	signal CLK333, CLK108	: std_logic;
 
 begin
 
 	U1 : entity CLOCK_BLOCK port map(
 		CLKIN => CLK,
-		CLKOUT0 => CLK50,
+		CLKOUT0 => CLK333,
 		CLKOUT1 => CLK108
 	);
 	
@@ -118,7 +118,7 @@ begin
 		mcb3_rzq => mcb3_rzq,
 		mcb3_zio => mcb3_zio,
 
-		c3_sys_clk  => CLK108,
+		c3_sys_clk  => CLK333,
 		c3_sys_rst_i => '0',      
 		--c3_clk0	=> '0',
 		--c3_rst0 => '0',
@@ -126,14 +126,14 @@ begin
 
 		c3_p0_cmd_clk                           =>  CLK108,
 		c3_p0_cmd_en                            =>  '0',
-		c3_p0_cmd_instr                         =>  (others => '0'),
-		c3_p0_cmd_bl                            =>  (others => '0'),
+		c3_p0_cmd_instr                         =>  "000",
+		c3_p0_cmd_bl                            =>  "00001",
 		c3_p0_cmd_byte_addr                     =>  (others => '0'),
 		--c3_p0_cmd_empty                         =>  '0',
 		--c3_p0_cmd_full                          =>  '0',
 		c3_p0_wr_clk                            =>  CLK108,
 		c3_p0_wr_en                             =>  '0',
-		c3_p0_wr_mask                           =>  (others => '0'),
+		c3_p0_wr_mask                           =>  "1100",
 		c3_p0_wr_data                           =>  (others => '0'),
 		--c3_p0_wr_full                           =>  '0',
 		--c3_p0_wr_empty                          =>  '0',

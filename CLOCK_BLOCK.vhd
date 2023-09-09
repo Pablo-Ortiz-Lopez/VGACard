@@ -24,6 +24,24 @@ begin
 			I => CLKIN,
 			O => CLKIN_CMT
 		);
+
+	DCM1 : DCM_SP generic map(
+		CLKDV_DIVIDE => 2.0,
+		CLKFX_DIVIDE => 3,
+		CLKFX_MULTIPLY => 20,
+		CLKIN_DIVIDE_BY_2 => FALSE,
+		CLKIN_PERIOD => 20.000,
+		CLKOUT_PHASE_SHIFT => "NONE",
+		CLK_FEEDBACK => "1X",
+		DESKEW_ADJUST => "SYSTEM_SYNCRHONOUS",
+		PHASE_SHIFT => 0,
+		STARTUP_WAIT => FALSE
+	)
+	port map (
+		CLKIN => CLKIN_CMT,
+		CLKFX => CLKOUT0
+	);
+
 	PLL1 : PLL_BASE
 		generic map (
 			BANDWIDTH => "OPTIMIZED",
@@ -34,12 +52,9 @@ begin
 			COMPENSATION => "INTERNAL",
 			DIVCLK_DIVIDE => 1,
 			REF_JITTER => 0.010,
-			CLKOUT0_DIVIDE => 13,
+			CLKOUT0_DIVIDE => 6,
 			CLKOUT0_DUTY_CYCLE => 0.500,
 			CLKOUT0_PHASE => 0.000,
-			CLKOUT1_DIVIDE => 6,
-			CLKOUT1_DUTY_CYCLE => 0.500,
-			CLKOUT1_PHASE => 0.000,
 			RESET_ON_LOSS_OF_LOCK => FALSE
 		)
 		port map (
@@ -47,10 +62,8 @@ begin
 			CLKFBIN => CLKFBOUT,
 			CLKFBOUT => CLKFBOUT,
 			RST => '0',
-			CLKOUT0 => CLKOUT0,
-			CLKOUT1 => CLKOUT1
+			CLKOUT0 => CLKOUT1
 		);
-	
 
 end Behavioral;
 

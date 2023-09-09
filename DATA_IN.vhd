@@ -58,9 +58,7 @@ begin
 
 			ADDRESS_F1 <= ADDRESS;
 			ADDRESS_F2 <= ADDRESS_F1;
-		end if;
-
-		if(rising_edge(CLK)) then
+			
 			if(DATA_PRESENT_F2 = '1') then
 				if(unsigned(ADDRESS_F2) = 0) then
 					bg_color_signal <= RECEIVED_BYTE_F2(3 downto 0) & bg_color_signal(7 downto 0);
